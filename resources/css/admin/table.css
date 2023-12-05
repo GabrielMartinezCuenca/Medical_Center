@@ -1,0 +1,62 @@
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #282928;
+        color: white;
+        text-align: center;
+    }
+
+    tbody tr {
+        transition: background-color 0.3s;
+    }
+
+    tbody tr:hover {
+        background-color: #f0f0f0;
+    }
+
+    .success-buttom, .danger-buttom, .option a {
+        text-decoration: none;
+        color: #333;
+        margin-right: 10px;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .success-buttom:hover {
+        background-color: rgb(17, 22, 85);
+        color: white;
+    }
+
+    .danger-buttom:hover {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .option a:hover {
+        background-color: rgb(17, 22, 85);
+        color: white;
+    }
+
+    h4 {
+        margin: 10px 0;
+        color: #333;
+    }
+
+    .option {
+        display: flex;
+        justify-content: flex-end;
+        padding: 10px;
+    }

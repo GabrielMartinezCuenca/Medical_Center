@@ -1,0 +1,57 @@
+:root {
+    --primary-color: white;
+    --font-primary-color: rgb(10, 10, 10);
+    --font-secondary-color: rgb(2, 2, 184);
+    --font-terc-color: rgb(13, 218, 102);
+    --subtitle: rgb(71, 71, 71);
+}
+
+.information {
+    padding: 4% 12%;
+    display: flex;
+    align-items: center;
+}
+
+.title-information {
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-family: 'roboto-bold', sans-serif;
+}
+
+.subtitle-information {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--subtitle);
+    font-family: 'roboto-bold', sans-serif;
+}
+
+.description-information {
+    font-size: 14px;
+    text-align: justify;
+}
+
+.image-information {
+    width: 40vw;
+    border-radius: 20px;
+    margin-left: 40px;
+}
+
+@font-face {
+    font-family: 'roboto-bold';
+    src: url('/public/assets/fonts/roboto/Roboto-Bold.ttf');
+}
+
+@media screen and (max-width: 700px) {
+    .information {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-information {
+        width: 80vw;
+        border-radius: 20px;
+        margin-top: 40px;
+        margin-left: 0; /* Reinicia el margen en pantallas más pequeñas */
+    }
+}

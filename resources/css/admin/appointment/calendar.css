@@ -1,0 +1,101 @@
+/* Styles for the Calendar */
+.calendar {
+    max-width: 300px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+}
+
+.disabled-day{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: rgb(194, 185, 185);
+}
+
+.calendar-header {
+    background-color: #151616;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-radius: 10px 10px 0 0;
+}
+
+.prev-month, .next-month {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 1px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.prev-month:hover, .next-month:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.current-month {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    padding: 5px;
+}
+
+.calendar-weekdays {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f7f7f7;
+    padding: 10px;
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .calendar {
+        max-width: 90%;
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked {
+    background-color: #1b1c1d;
+    border-color: #1b1c1d;
+    color: #fff;
+}
+
+#horariosDiv {
+    column-count: 2;
+}

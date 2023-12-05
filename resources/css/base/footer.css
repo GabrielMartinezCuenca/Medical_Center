@@ -1,0 +1,97 @@
+:root {
+    --primary-color: white;
+    --font-primary-color: rgb(10, 10, 10);
+    --font-secondary-color: rgb(2, 2, 184);
+    --font-terc-color: rgb(13, 218, 102);
+    --credit-color: rgb(78, 78, 78);
+    --font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos el 100% de la altura de la ventana */
+}
+
+content {
+    flex: 1; /* Permite que el contenido principal ocupe el espacio restante */
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px; /* Agrega un relleno para separar el footer del contenido principal */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5% 10%;
+}
+
+.footer-section-content {
+    display: flex;
+}
+
+.footer-section {
+    margin: 30px;
+    text-align: left;
+}
+
+.footer-section li {
+    margin-top: 10px;
+    list-style: none;
+}
+
+.footer-section a {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--font-secondary-color);
+}
+
+#developer {
+    margin-left: 15vh;
+    text-align: left;
+    font-size: 14px;
+    color: var(--credit-color);
+}
+
+/* Media query para hacer el diseño responsive a 700px o menos */
+@media screen and (max-width: 700px) {
+    .content-footer {
+        flex-direction: column; /* Cambia a una disposición vertical en pantallas más pequeñas */
+        text-align: center; /* Centra el texto en pantallas más pequeñas */
+    }
+
+    .footer-section {
+        margin: 15px 0; /* Aumenta el margen vertical entre las secciones en pantallas más pequeñas */
+    }
+
+    .footer-section-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #developer {
+        margin-left: 5vh;
+        text-align: left;
+        font-size: 9px;
+        color: var(--credit-color);
+    }
+}

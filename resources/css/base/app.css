@@ -1,0 +1,37 @@
+:root{
+    --primary-color: white;
+    --font-primary-color: rgb(10, 10, 10);
+    --font-secondary-color: hsl(240, 84%, 13%);
+    --font-terc-color: rgb(19, 44, 30);
+    --font-family: roboto;
+    
+}
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--font-family);
+}
+
+.icon-logo{
+    width: 50px;
+    height: 50px;
+}
+
+.line {
+    width: 90%;
+    height: 1px; /* Altura de la línea */
+    background-color: #e7e7e7; /* Color de la línea */
+    margin: 0px auto; /* Margen superior e inferior para espaciar la línea y "auto" para centrar horizontalmente */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave debajo de la línea */
+}
+
+
+@font-face {
+    font-family: roboto;
+    src: url('/public/assets/fonts/roboto/Roboto-Regular.ttf');
+}

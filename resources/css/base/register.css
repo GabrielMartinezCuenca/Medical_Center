@@ -1,0 +1,52 @@
+:root {
+    --primary-color: white;
+    --font-primary-color: rgb(10, 10, 10);
+    --font-secondary-color: rgb(2, 2, 184);
+    --font-terc-color: rgb(13, 218, 102);
+}
+
+#register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4% 10%;
+    background-color: var(--primary-color); /* Agrega un fondo de color blanco */
+}
+
+.menu-information {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.menu-information li {
+    margin: 0 20px; /* Espacio entre elementos del menú */
+    margin-top: 15px;
+}
+
+.menu-information a {
+    text-decoration: none;
+    color: var(--primary-color);
+    background-color: var(--font-secondary-color);
+    padding: 15px 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.menu-information a:hover {
+    background-color: rgb(5, 5, 58);
+}
+
+/* Media query para hacer el diseño responsive a 700px o menos */
+@media screen and (max-width: 700px) {
+    .menu-information {
+        flex-direction: column; /* Cambia a una disposición vertical en pantallas más pequeñas */
+        align-items: center; /* Centra los elementos horizontalmente */
+    }
+
+    .menu-information li {
+        margin: 10px 0; /* Espacio entre elementos del menú en pantallas más pequeñas */
+    }
+}

@@ -1,0 +1,23 @@
+:root{
+    --primary-color: white;
+    --font-primary-color: rgb(10, 10, 10);
+    --font-secondary-color: rgb(2, 2, 184);
+    --font-terc-color: rgb(13, 218, 102);
+}
+
+#navbar-appointment nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#navbar-appointment li{
+    margin: 15px;
+    list-style: none;
+}
+
+#navbar-appointment a{
+    text-decoration: none;
+    color: var(--font-secondary-color);
+}
+

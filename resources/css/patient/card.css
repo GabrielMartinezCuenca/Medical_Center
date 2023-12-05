@@ -1,0 +1,98 @@
+.patients-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 35px;
+}
+
+.patients-list-link {
+    display: block;
+    background-color: #007BFF;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    width: 100%; /* Ocupar todo el ancho */
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.patients-list > li {
+    flex: 0 0 calc(33.33% - 20px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.name-card {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.information-section-card p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #555;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.buttom-success {
+    flex: 0 0 48%; 
+    background-color: #007BFF;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.buttom-danger {
+    flex: 0 0 48%; 
+    background-color: rgb(156, 6, 6);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.buttom-success:hover {
+    background-color: #0056b3;
+}
+.buttom-danger:hover {
+    background-color: rgb(95, 3, 11);
+}
+
+@media (max-width: 768px) {
+    .patients-list > li {
+        flex: 0 0 100%; /* Ocupar todo el ancho en pantallas pequeñas */
+    }
+
+    .actions a {
+        flex: 0 0 48%; 
+    }
+}
