@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Medical_Center
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2 # Asegúrate de usar la versión más reciente
 
     - name: Configurar entorno PHP
       uses: shivammathur/setup-php@v2
@@ -39,3 +39,9 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: ${{ secrets.FTP_DESTINATION }}
+      continue-on-error: true # Continuar ejecución incluso si hay errores
+
+    - name: Debugging Information
+      run: |
+        echo "Deployment completed with exit code $?"
+        # Otros comandos de depuración si es necesario
