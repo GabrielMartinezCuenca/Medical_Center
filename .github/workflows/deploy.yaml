@@ -27,9 +27,10 @@ jobs:
         FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         FTP_DESTINATION: ${{ secrets.FTP_DESTINATION }}
-      run: php artisan config:cache}
-      run: php artisan migrate
-      run: php artisan db:seed
+      run: |
+        php artisan config:cache
+        php artisan migrate
+        php artisan db:seed
 
     - name: Deploy to shared hosting
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
