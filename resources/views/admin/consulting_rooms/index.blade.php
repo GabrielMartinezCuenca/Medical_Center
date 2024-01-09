@@ -4,13 +4,13 @@
 @vite('resources/css/admin/table.css')
 @vite('resources/css/admin/modal.css')
 
-@section('content_header')
-<h1>Consultorios Médicos</h1>   
-@endsection
+
 
 @section('content')
 <div class="option">
+    @can('consulting-room.create')
     <a href="{{route('consulting-room.create')}}">Nuevo consultorio</a>
+    @endcan
 </div>
 <ul>
     <table>
@@ -31,8 +31,12 @@
                     <td>{{$consulting_room->email}}</td>
 
                     <td>
+                        @can('consulting-room.edit')
                         <a class="success-buttom" href="{{route('consulting-room.edit', $consulting_room)}}">Actualizar</a>
+                        @endcan
+                        @can('consulting-room.destroy')
                         <a  class="danger-buttom" href="#" onclick="mostrarModal('{{ $consulting_room->id }}')">Eliminar</a>
+                        @endcan
                     </td>
                 </tr>
                 <!-- Modal para confirmar la eliminación -->
@@ -46,22 +50,24 @@
                                 @method('DELETE')
                                 <button type="submit">Eliminar</button>
                             </form>
-                            
-                            
+
+
                             <button class="cancel" onclick="cerrarModal('{{ $consulting_room->id }}')">Cancelar</button>
                         </div>
                     </div>
                 </div>
             @empty
                 <tr>
-                    <td colspan="4"><h4>No hay especialidades registradas</h4></td>
+                    <td colspan="4"><h4>No hay consultorios registrados</h4></td>
                 </tr>
             @endforelse
         </tbody>
     </table>
-    
-</ul>
 
+</ul>
+<div class="pagination">
+    {{ $consulting_rooms->links('pagination::bootstrap-4') }}
+</div>
 <script>
     function mostrarModal(id) {
         var modal = document.getElementById('modal' + id);

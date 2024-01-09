@@ -150,8 +150,8 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
 
@@ -313,109 +313,93 @@ return [
         ],
         [
             'text'        => 'Dashboard',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'url'         => 'admin/dashboard',
+            'icon'        => 'fas fa-tachometer-alt fa-fw',
+
+        ],
+        [
+            'text'        => 'Usuarios',
+            'url'         => 'admin/user',
+            'icon'        => 'fas fa-users fa-fw',
+            'can'  => 'user.index',
+
+        ],
+        [
+            'text'        => 'Roles',
+            'url'         => 'admin/role',
+            'icon'        => 'fas fa-user-tag',
+            'can'  => 'user.index',
+
         ],
         ['header' => 'AJUSTES'],
         [
             'text' => 'Peticiones',
             'url'  => 'admin/appointment',
             'icon' => 'fas fa-notes-medical',
+            'can' => 'appointment.index',
             'active' => ['peticiones*'],
         ],
         [
             'text' => 'Citas Medicas',
             'url'  => 'admin/appointment/confirmed',
-            'icon' => 'fas fa-notes-medical',
+            'icon' => 'fas fa-calendar-plus',
+            'can' => 'appointmentConfirmed',
             'active' => ['citas*'],
         ],
         [
             'text' => 'Pacientes',
             'url'  => 'admin/patient',
-            'icon' => 'fas fa-user',
+            'icon' => 'fas fa-user-injured',
             'active' => ['pacientes*'],
 
         ],
         [
             'text'    => 'Historial',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-book-open',
+            'can'=>'appointment.history',
+
             'submenu' => [
                 [
                     'text' => 'Historial de citas',
-                    'url'  => '#',
-                    
+                    'url'  => 'admin/history',
+                    'active' => ['history*'],
+                    'can'=>'appointment.history',
+
                 ],
                 [
                     'text' => 'Citas canceladas',
-                    'url'  => '#',
-                ],
-                [
-                    'text' => 'Citas no asistidas',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
+                    'url'  => 'admin/canceled',
+                    'active' => ['canceled*'],
+                    'can'=>'appointment.history',
+                         ],
+
             ],
         ],
-        ['header' => 'AJUSTES ADMINISTRADOR'],
+
         [
             'text' => 'Médicos',
             'url'  => 'admin/doctor',
-            'icon' => 'fas fa-user',
+            'icon' => 'fas fa-user-md',
+            'can'=>'doctor.index',
              'active' => ['medicos*'],
         ],
+
         [
             'text' => 'Especialidades',
             'url'  => 'admin/especiality',
-            'icon' => 'fas fa-notes-medical',
+            'icon' => 'fas fa-file-medical-alt',
+            'can'=>'especiality.index',
             'active' => ['especialidades*'],
         ],
         [
             'text' => 'Consultorios',
             'url'  => 'admin/consulting-room',
-            'icon' => 'fas fa-notes-medical',
+            'icon' => 'fas fa-hospital',
+            'can'=>'consulting-room.index',
             'active' => ['consultorios*'],
         ],
-        [
-            'text' => 'Usuarios',
-            'url'  => 'admin/user',
-            'icon' => 'fas fa-notes-medical',
-            'active' => ['usuarios*'],
-        ],
-        [
-            'text' => 'Roles',
-            'url'  => 'admin/role',
-            'icon' => 'fas fa-notes-medical',
-            'active' => ['roles*'],
-        ],
+
+
     ],
 
     /*

@@ -48,8 +48,9 @@
                     <span class="alert-red">{{ $message }}</span>
                 @enderror
             </div>
+
         </div>
-       
+
 
 
         <input type="submit" value="Registrar usuario">

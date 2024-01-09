@@ -16,13 +16,19 @@ return new class extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->date('born_date')->nullable();
+            $table->double('weight')->nullable();
+            $table->double('height')->nullable();
+            $table->string('gender')->nullable();
+            $table->double('IMC')->nullable();
+            $table->double('temperature')->nullable();
+            $table->string('blood_pressure')->nullable();
             $table->string('avenue')->nullable();
             $table->unsignedInteger('number')->nullable();
             $table->string('city')->nullable();
             $table->string('region')->nullable();
             $table->text('information')->nullable();
             $table->boolean('status')->default(1);
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });
     }

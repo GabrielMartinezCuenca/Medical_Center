@@ -1,0 +1,26 @@
+
+.content{
+    background-color: rgb(243, 243, 243);
+    padding: 30px;
+}
+
+.appointment-information{
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    width: 70%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px rgb(131, 131, 131);
+    margin-bottom: 10px;
+}
+
+.appointment-information li{
+    margin: 10px;
+    list-style: none;
+}
+
+.appointment-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -65,5 +65,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'authenticationPatient' => \App\Http\Middleware\CustomAuthorization::class,
+        'generatePassword' => \App\Http\Middleware\GeneratePassword::class,
+        'appointmentDoctorAuth' => \App\Http\Middleware\AppointmentDoctorAuth::class,
     ];
 }

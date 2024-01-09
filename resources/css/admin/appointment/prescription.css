@@ -1,0 +1,101 @@
+/*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+
+#prescription{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.prescription-content{
+    width: 50%;
+    height: 40%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 2%;
+}
+.icon{
+    width: 80px;
+    height: 80px;
+}
+
+.prescription-content header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.doctor-information{
+    display: flex;
+    align-items: center;
+}
+
+.prescription-content ul{
+    margin-left: 1px;
+}
+
+.prescription-content li{
+    margin: 0;
+    font-size: 9px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.prescription-content span{
+font-size: 6px;
+color: red;
+}
+
+section{
+    padding: 10px 0px 0px 0px;
+}
+
+.line2{
+    width: 95%;
+    margin-bottom: 20px;
+    height: 1px; /* Altura de la línea */
+    background-color: #000000; /* Color de la línea */
+    margin: 0px auto; /* Margen superior e inferior para espaciar la línea y "auto" para centrar horizontalmente */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave debajo de la línea */
+}
+
+.patient ul ul{
+    display: flex;
+    width: 50%;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+
+.patient ul ul li{
+    margin-right: 10px;
+}
+
+.treatment{
+    padding: 1%;
+
+}
+
+.treatment h2{
+    font-size: 20px;
+}
+
+.treatment p{
+    font-size: 10px;
+}
+
+.options{
+    display: flex;
+    justify-content: right;
+    padding: 0px 20px;
+}
+
+.options a{
+    background-color: darkblue;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+}
+.options a:hover{
+    background-color: rgb(18, 18, 170);
+    color: white;
+}
+

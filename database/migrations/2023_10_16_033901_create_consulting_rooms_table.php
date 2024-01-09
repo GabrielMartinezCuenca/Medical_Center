@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('consulting_rooms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('location')->nullable();
-            $table->string('phone')->nullable();
+            $table->string('location');
+            $table->string('phone');
             $table->string('especiality')->nullable();
-            $table->time('schedule_start');
-            $table->time('schedule_end');
+            $table->time('schedule_start')->nullable();
+            $table->time('schedule_end')->nullable();
             $table->text('services')->nullable();
             $table->string('email')->nullable();
-            $table->text('information');
+            $table->text('information')->nullable();
             $table->timestamps();
         });
     }

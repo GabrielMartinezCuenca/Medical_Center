@@ -1,0 +1,99 @@
+#document {
+    padding: 30px;
+}
+
+#document-content {
+    width: 100%;
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.title-appointment{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.item{
+    display: flex;
+    font-size: 20px;
+}
+
+.information-patient{
+    padding: 15px;
+    border: 3px solid black;
+    margin-bottom: 10px;
+
+}
+
+.information-patient h4{
+    color: blue;
+    font-size: 18px;
+}
+
+.information-patient span{
+    font-size: 18px;
+    color: rgb(7, 7, 7);
+}
+
+.appointment-information{
+    padding: 15px;
+    border: 3px solid black;
+
+}
+
+.appointment-information h4{
+    color: rgb(255, 0, 0);
+    font-size: 18px;
+}
+
+.appointment-information span{
+    font-size: 18px;
+    color: rgb(7, 7, 7);
+}
+
+.status{
+    margin-top: 10px;
+    padding: 30px;
+    display: flex;
+    justify-content: end;
+}
+
+.status a{
+    background-color: darkblue;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+}
+.status a:hover{
+    background-color: rgb(18, 18, 170);
+    color: white;
+}
+.option{
+    padding: 10px;
+    display: flex;
+    justify-content: end;
+}
+
+.option a{
+    background-color: darkblue;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.option a:hover{
+    background-color: rgb(18, 18, 170);
+    color: white;
+}
+
+.editor{
+    margin-top: 20px;
+    padding: 20px;
+}

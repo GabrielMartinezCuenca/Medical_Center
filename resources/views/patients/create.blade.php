@@ -49,13 +49,13 @@
                     <span class="alert-red">{{ $message }}</span>
                 @enderror
             </div>
-          
+
             <div>
                 <input type="text" name="number" id="number" placeholder="Numero" value="{{ old('number') }}">
                 @error('avenue')
                     <span class="alert-red">{{ $message }}</span>
                 @enderror
-            </div>    
+            </div>
         </div>
         <div class="group">
             <div>
@@ -74,9 +74,9 @@
                     <span class="alert-red">{{ $message }}</span>
                 @enderror
             </div>
-            
+
         </div>
-        
+
         <div>
             <input type="text" name="information" id="information" placeholder="Referencias (opcional)" value="{{ old('information') }}">
             @error('information')

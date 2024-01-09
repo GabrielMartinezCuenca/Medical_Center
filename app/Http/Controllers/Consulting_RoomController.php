@@ -9,12 +9,15 @@ use Illuminate\Http\Request;
 
 class Consulting_RoomController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct(){
+        $this->middleware('can:consulting-room.index')->only('index');
+        $this->middleware('can:consulting-room.create')->only('create','store');
+        $this->middleware('can:consulting-room.edit')->only('edit','update');
+        $this->middleware('can:consulting-room.destroy')->only('destroy');
+    }
     public function index()
     {
-        $consulting_rooms = Consulting_room::all();
+        $consulting_rooms = Consulting_room::paginate(10);
         return view('admin.consulting_rooms.index', compact('consulting_rooms'));
     }
 
@@ -46,22 +49,12 @@ class Consulting_RoomController extends Controller
 
             ]
         );
-        
+
         return redirect()->action([Consulting_RoomController::class, 'index']);
-        
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Consulting_room $consulting_room)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Consulting_room $consulting_room)
     {
         $especialities = Medical_especiality::all();
@@ -94,8 +87,8 @@ class Consulting_RoomController extends Controller
     public function destroy(Consulting_room $consulting_room)
     {
         $consulting_room -> delete();
-        
+
         return redirect()->action([Consulting_RoomController::class, 'index']);
-        
+
     }
 }

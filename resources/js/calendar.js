@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         for (let day = 1; day <= daysInMonth; day++) {
             const currentDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
-        
+
                     const radioInput = document.createElement("input");
             radioInput.type = "radio";
             radioInput.name = "calendar-date"; // Nombre único para el conjunto de radios
             radioInput.value = `${currentMonth.getFullYear()}-${currentMonth.getMonth() + 1}-${day}`; // Valor de la fecha
             radioInput.id = `date-${day}`;
-            
+
             const label = document.createElement("label");
             label.setAttribute("for", `date-${day}`);
             label.textContent = day;
@@ -49,10 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
             radioInput.addEventListener("click", function () {
                 // Mover la lógica de solicitud AJAX aquí al seleccionar la fecha
                 const selectedDate = radioInput.value;
-            
+
                 var xhr = new XMLHttpRequest();
                 xhr.open('GET', '/getHour/' + selectedDate, true);
-            
+
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4) {
                         if (xhr.status === 200) {
@@ -60,10 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             if ('mensaje' in response) {
                                 var horariosDiv = document.getElementById('horariosDiv');
                                 horariosDiv.innerHTML = '';
-            
+
                                 var horarios = response.mensaje.split(' '); // Divide los horarios en un array
-                                    
-                               
+
+
                 if (horarios.length < 2) {
                     var sinCitasTitulo = document.createElement('h4');
                     sinCitasTitulo.textContent = 'Sin horario disponible para este día';
@@ -98,10 +98,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         }
                     }
                 };
-            
+
                 xhr.send();
             });
-            
+
 
             radioInput.addEventListener("click", function () {
                 // Manejar la selección de la fecha aquí
@@ -127,3 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+function toggleMenu() {
+    const menu = document.querySelector('.header-menu ul');
+    menu.classList.toggle('show');
+}

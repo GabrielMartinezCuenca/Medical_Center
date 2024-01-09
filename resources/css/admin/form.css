@@ -1,12 +1,12 @@
 #register {
-    padding: 30px;
+    padding: 20px;
 }
 
 #register-content {
     width: 100%;
-    max-width: 50vw;
+    max-width: 60vw;
     margin: 0 auto;
-    padding: 20px;
+    padding: 15px;
     background-color: #f7f7f7;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -21,13 +21,46 @@
 }
 
 .group > div {
-    width: calc(50% - 10px); 
+    width: calc(50% - 10px);
     margin-bottom: 10px;
 }
 
 form {
     text-align: left;
 }
+
+#register-content h1{
+font-size: 30px;
+color:#0056b3;
+text-align: left;
+}
+.container-checkbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-checkbox label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.container-checkbox input[type="checkbox"] {
+    margin-right: 8px;
+    vertical-align: middle; /* Ajustamos la alineación vertical */
+}
+
+
+
+
+
+.alert-red {
+    color: red;
+    font-weight: bold;
+}
+
+
+
 
 form div {
     margin: 10px 0;
@@ -42,24 +75,25 @@ input[type="password"],
 input[type="date"],
 select {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 input[type="submit"] {
+    margin-top: 5px;
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     background-color: #1b1c1d;
     color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 
 input[type="submit"]:hover {
     background-color: #0056b3;
@@ -69,31 +103,34 @@ input[type="submit"]:hover {
     color: #ff0000;
     font-size: 14px;
     display: block;
-    margin-top: 5px;
 }
-/* Estilos para el campo de tiempo y texto */
-#schedule, #services {
+
+#schedule,
+#services,
+#gender,
+#region {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
     outline: none;
 }
 
-#schedule:focus, #services:focus {
+#schedule:focus,
+#services:focus,
+#gender:focus,
+#region:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Estilos para el mensaje de error */
 .alert-red {
     color: #ff0000;
     font-size: 0.8rem;
-    margin-top: 5px;
 }
+
 @media (max-width: 768px) {
     .group > div {
         width: 100%; /* Una columna en pantallas pequeñas */
     }
 }
-

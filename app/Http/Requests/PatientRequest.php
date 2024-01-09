@@ -30,6 +30,11 @@ class PatientRequest extends FormRequest
             'city' => 'nullable',
             'region' => 'nullable',
             'information' => 'nullable',
+            'gender'=>'nullable',
+            'weight'=>'nullable|numeric',
+            'height'=>'nullable|numeric',
+            'temperature'=>'nullable|numeric',
+            'blood_pressure'=>'nullable|numeric',
         ];
     }
 }

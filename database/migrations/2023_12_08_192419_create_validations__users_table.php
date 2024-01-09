@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('validations__users', function (Blueprint $table) {
             $table->id();
-            $table->string('role');
-            $table->text('description')->nullable();
-            $table->boolean('status');
-
+            $table->unsignedBigInteger('user_id');
+            $table->string('token');
+            $table->boolean('status')->default(1);
+            $table->date('date_start');
+            $table->date('expiration_date');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('validations__users');
     }
 };

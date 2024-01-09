@@ -6,19 +6,26 @@
     padding: 35px;
 }
 
-.patients-list-link {
-    display: block;
-    background-color: #007BFF;
-    color: #fff;
-    text-align: center;
+.options{
+    display: flex;
+    justify-content: center;
     padding: 10px;
+}
+
+.patients-list-link {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: right;
+    background-color: #0056b3;
+    color: #e0e0e0;
     text-decoration: none;
-    border: none;
-    width: 100%; /* Ocupar todo el ancho */
-    margin-bottom: 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 1.2rem;
+    width: 50%;
+    text-align: center;
+    transition: ease-in 1s;
+}
+
+.patients-list-link:hover{
+    background-color: #328ef0;
 }
 
 .patients-list > li {
@@ -55,7 +62,7 @@
 }
 
 .buttom-success {
-    flex: 0 0 48%; 
+    flex: 0 0 48%;
     background-color: #007BFF;
     color: #fff;
     text-align: center;
@@ -68,7 +75,7 @@
 }
 
 .buttom-danger {
-    flex: 0 0 48%; 
+    flex: 0 0 48%;
     background-color: rgb(156, 6, 6);
     color: #fff;
     text-align: center;
@@ -93,6 +100,6 @@
     }
 
     .actions a {
-        flex: 0 0 48%; 
+        flex: 0 0 48%;
     }
 }

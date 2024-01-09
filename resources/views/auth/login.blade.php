@@ -24,7 +24,7 @@
                 <span class="alert-red">{{ $message }}</span>
             @enderror
         </div>
-        
+
         <div>
             <input type="password" name="password" id="password" placeholder="Contraseña">
             @error('password')
@@ -34,6 +34,8 @@
         <input type="submit" value="Registrar usuario">
 
     </form>
+    <a href="{{ route('password.request') }}">¿Olvidaste tu contraseña?</a>
+
 </div>
 
 
@@ -44,4 +46,4 @@
 
 
 
- 
+

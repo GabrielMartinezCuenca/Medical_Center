@@ -13,18 +13,18 @@ class Doctor extends Model
     use HasFactory;
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    
+
     public function user():BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    
+
     public function requests():HasMany
     {
         return $this->hasMany(Request::class);
     }
-    
+
     public function consulting_room():BelongsTo
     {
         return $this->belongsTo(Consulting_room::class);
@@ -35,8 +35,13 @@ class Doctor extends Model
         return $this->belongsTo(Medical_especiality::class);
     }
 
- 
+    public function prescription(): HasMany
+    {
+        return $this->hasMany(Prescription::class);
+    }
 
-    
+
+
+
 
 }

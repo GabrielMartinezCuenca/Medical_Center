@@ -1,0 +1,65 @@
+.options{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.patients-list-link {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: right;
+    background-color: #0056b3;
+    color: #e0e0e0;
+    text-decoration: none;
+    width: 50%;
+    text-align: center;
+    transition: ease-in 1s;
+}
+
+.patients-list-link:hover{
+    background-color: #328ef0;
+}
+
+.appointments-content{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+.card{
+    width: 30%;
+    height: 250px;
+    text-align: center;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.card-i{
+    width: 30%;
+    height: 250px;
+    text-align: center;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.status{
+    background-color: #5294da;
+    padding: 20px;
+    font-size: 25px;
+}
+
+.patient{
+    font-size: 18px;
+    color: #0056b3;
+}
+
+.card ul {
+    padding: 0; /* Elimina el relleno predeterminado de la lista */
+}
+
+.card li {
+    list-style: none;
+}

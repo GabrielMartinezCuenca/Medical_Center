@@ -10,7 +10,7 @@
             <li><a href="">Boletín mensual</a></li>
         </ul>
     </div>
-    
+
     <div class="footer-section">
         <h4>Legales</h4>
         <ul>
@@ -19,7 +19,7 @@
             <li><a href="">Aviso de privacidad</a></li>
         </ul>
     </div>
-    
+
     <div class="footer-section">
         <h4>Espacio para médicos</h4>
         <ul>
@@ -27,17 +27,15 @@
             <li><a href="">Sesiones</a></li>
         </ul>
     </div>
-    
+
     <div class="footer-section">
         <h4>Contacto del desarrollador</h4>
         <ul>
-            <li><a href="">Facebook</a></li>
-            <li><a href="">Teléfono</a></li>
-            <li><a href="">Correo electrónico</a></li>
-            <li><a href="">Github</a></li>
+            <li><a href="">Portafolio web</a></li>
+
         </ul>
     </div>
-    
+
    </div>
 </div>
 

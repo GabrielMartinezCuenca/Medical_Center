@@ -7,15 +7,18 @@ use App\Models\Images;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Patient;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -28,7 +31,7 @@ class User extends Authenticatable
         'email',
         'phone',
         'password',
-        'status'
+        'status',
     ];
 
     /**
@@ -51,10 +54,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function Role():BelongsTo
-    {
-        return $this -> BelongsTo(Role::class);
-    }
+
 
 
     public function patients(): HasMany
@@ -62,19 +62,28 @@ class User extends Authenticatable
         return $this->hasMany(Patient::class);
     }
 
-    
+
     public function doctor():HasOne
     {
         return $this->hasOne(Doctor::class);
     }
-    
+
     public function image():HasOne
     {
         return $this -> HasOne(Images::class);
     }
 
-    
-   
-    
+
+
+
+    public function validation_user():BelongsTo
+    {
+        return $this -> belongsTo(Validations_User::class);
+    }
+
+
+
+
+
 
 }

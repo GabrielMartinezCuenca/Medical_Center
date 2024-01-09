@@ -17,9 +17,8 @@ return new class extends Migration
             $table->time('hour');
             $table->text('information');
             $table->unsignedBigInteger('patient_id');
-            $table->unsignedBigInteger('consultingRoom_id')->default(0);
+            $table->unsignedBigInteger('doctor_id')->default(0);
             $table->unsignedBigInteger('status')->default(1);
-
             $table->timestamps();
         });
     }

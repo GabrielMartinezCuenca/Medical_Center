@@ -22,10 +22,10 @@ class RequestRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date' => 'nullable',
-            'hour' => 'nullable',
-            'information' => 'nullable',
-            'patient_id' => 'nullable',
+            'date' => 'required',
+            'hour' => 'required',
+            'information' => 'required|min:5',
+            'patient_id' => 'required',
             'doctor_id' => 'nullable'
         ];
     }

@@ -1,0 +1,39 @@
+.dashboard-statistics{
+    padding: 20px;
+}
+
+.dashboard-statistics h2{
+    font-size: 30px;
+}
+
+.general{
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.general div{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(170, 189, 194);
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.general h3{
+    font-size: 20px;
+}
+
+.general p{
+    font-size: 25px;
+    color: chocolate;
+}
+
+.general a{
+    font-size: 16px;
+}
+

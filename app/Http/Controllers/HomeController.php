@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Events\CreateAppointmentEvent;
 use App\Http\Requests\PatientRequest;
 use App\Http\Requests\RequestRequest;
@@ -17,16 +18,19 @@ class HomeController extends Controller
 {
 
 
-    
+
     public function requests()
     {
         if (Auth::check()) {
             $requests = Request::join('patients', 'requests.patient_id', '=', 'patients.id')
-    ->join('users', 'patients.user_id', '=', 'users.id')
-    ->where('users.id', Auth::user()->id)
-    ->where('requests.status', 1)  
-    ->distinct()
-    ->get(['requests.*']);
+                ->join('users', 'patients.user_id', '=', 'users.id')
+                ->where('users.id', Auth::user()->id)
+                ->where(function ($query) {
+                    $query->where('requests.status', 1)
+                        ->orWhere('requests.status', 2);
+                })->distinct()
+                ->distinct()
+                ->get(['requests.*']);
 
             return view('appointments.appointments', compact('requests'));
         } else {
@@ -38,12 +42,12 @@ class HomeController extends Controller
     {
         if (Auth::check()) {
             $requests = Request::join('patients', 'requests.patient_id', '=', 'patients.id')
-    ->join('users', 'patients.user_id', '=', 'users.id')
-    ->where('users.id', Auth::user()->id)
-    ->where('requests.status', '>' ,2)  
-    ->distinct()
-    ->get(['requests.*']);
-    
+                ->join('users', 'patients.user_id', '=', 'users.id')
+                ->where('users.id', Auth::user()->id)
+                ->where('requests.status', '>', 2)
+                ->distinct()
+                ->get(['requests.*']);
+
             return view('appointments.history', compact('requests'));
         } else {
             return view('appointments.history');
@@ -60,7 +64,7 @@ class HomeController extends Controller
             "5:00 PM", "5:30 PM", "6:00 PM", "6:30 PM",
             "7:00 PM", "7:30 PM", "8:00 PM"
         ];
-        
+
 
         $patients = Patient::where('user_id', Auth::user()->id)->get();
 
@@ -76,16 +80,15 @@ class HomeController extends Controller
             [
                 'date' => $request->date,
                 'hour' => $hour,
-                'information' => $request -> information,
-                'patient_id' => $request -> patient_id
+                'information' => $request->information,
+                'patient_id' => $request->patient_id
             ]
         );
 
         Event::dispatch(new CreateAppointmentEvent($appointment));
 
-        
+
         return redirect()->action([HomeController::class, 'requests']);
-        
     }
 
     public function requestShow($appointment)
@@ -95,7 +98,8 @@ class HomeController extends Controller
         return view('appointments.show', compact('request'));
     }
 
-    public function getHour($date) {
+    public function getHour($date)
+    {
         $schedule = [
             "09:00", "09:30", "10:00", "10:30",
             "11:00", "11:30", "12:00", "12:30",
@@ -104,19 +108,22 @@ class HomeController extends Controller
             "17:00", "17:30", "18:00", "18:30",
             "19:00", "19:30", "20:00"
         ];
-    
-        $dates = Request::where('date', $date)->pluck('hour')->toArray();
-    
+
+        $dates = Request::where('date', $date)
+            ->whereIn('status', [1, 2, 3])
+            ->pluck('hour')
+            ->toArray();
+
         $formattedDates = array_map(function ($time) {
             return date('H:i', strtotime($time));
         }, $dates);
-    
+
         $availableHours = array_diff($schedule, $formattedDates);
-    
+
 
         return response()->json(['mensaje' => implode(" ", $availableHours)]);
     }
-    
+
     /*
         public function getHour($date) {
         $schedule = [
@@ -127,15 +134,15 @@ class HomeController extends Controller
             "17:00", "17:30", "18:00", "18:30",
             "19:00", "19:30", "20:00"
         ];
-    
+
         $dates = Request::where('date', $date)->pluck('hour')->toArray();
-    
+
         $formattedDates = array_map(function ($time) {
             return date('H:i', strtotime($time));
         }, $dates);
-    
+
         $availability = []; // Array para almacenar disponibilidad
-    
+
         foreach ($schedule as $time) {
             // Comprueba si la hora está en $formattedDates (disponible) o no (no disponible)
             $availability[$time] = in_array($time, $formattedDates) ? 1 : 0;
@@ -143,12 +150,12 @@ class HomeController extends Controller
         return response()->json(['mensaje' => implode(", ", $availability)]);
 
     }
-    
-    
-    
-    */ 
-    
-    
+
+
+
+    */
+
+
     public function patients()
     {
         $patients = Patient::where('user_id', Auth::user()->id)->get();
@@ -202,17 +209,16 @@ class HomeController extends Controller
             [
                 'name' => $request->name,
                 'lastname' => $request->lastname,
-                'born_date' => $request -> born_date,
-                'avenue' => $request -> avenue,
-                'number' => $request -> number,
-                'city' => $request -> city,
-                'region' => $request -> region,
-                'information' => $request -> information,
+                'born_date' => $request->born_date,
+                'avenue' => $request->avenue,
+                'number' => $request->number,
+                'city' => $request->city,
+                'region' => $request->region,
+                'information' => $request->information,
                 'user_id' => $user,
             ]
         );
         return redirect()->action([HomeController::class, 'patients']);
-        
     }
 
     public function patientsShow(Patient $patient)
@@ -253,7 +259,7 @@ class HomeController extends Controller
         ];
 
 
-        return view('patients.show', compact('patient', 'estadosMexico')); 
+        return view('patients.show', compact('patient', 'estadosMexico'));
     }
 
     public function patientsUpdate(PatientRequest $request, Patient $patient)
@@ -268,14 +274,12 @@ class HomeController extends Controller
             'region' => $request->region,
             'information' => $request->information,
         ]);
-    
+
         return redirect()->action([HomeController::class, 'patients']);
     }
-    
+
     public function patientDestroy(Patient $patient)
     {
-        $patient -> delete();
+        $patient->delete();
     }
-
-
 }

@@ -3,9 +3,6 @@
 @section('title', 'Doctores')
 @vite('resources/css/admin/form.css')
 
-@section('content_header')
-<h1>Doctores</h1>   
-@endsection
 
 @section('content')
 <div id="register">
@@ -27,7 +24,7 @@
                         <span class="alert-red">{{ $message }}</span>
                     @enderror
                 </div>
-    
+
             <div>
                 <input type="text" name="phone" id="phone" placeholder="Telefono" value="{{ $consulting_room -> phone }}">
                 @error('phone')
@@ -49,7 +46,7 @@
             <div class="group">
                 <div>
                     <label for="">Horario de entrada</label>
-    
+
                     <input type="time" name="schedule_start" id="schedule" placeholder="Horario de inicio" value="{{ $consulting_room -> schedule_start }}">
                     @error('schedule_start')
                         <span class="alert-red">{{ $message }}</span>
@@ -57,13 +54,13 @@
                 </div>
                 <div>
                     <label for="">Horario de salida</label>
-    
+
                     <input type="time" name="schedule_end" id="schedule" placeholder="Horario de salida" value="{{ $consulting_room -> schedule_end }}">
                     @error('schedule_end')
                         <span class="alert-red">{{ $message }}</span>
                     @enderror
                 </div>
-                
+
             </div>
             <div>
                 <input type="text" name="services" id="services" placeholder="Servicios" value="{{ $consulting_room -> services }}">
@@ -88,7 +85,7 @@
             <input type="submit" value="Actualizar Consultorio">
         </form>
     </div>
-    
-    
+
+
     </div>
 @endsection

@@ -8,12 +8,15 @@ use Illuminate\Http\Request;
 
 class EspecialityController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct(){
+        $this->middleware('can:especiality.index')->only('index');
+        $this->middleware('can:especiality.create')->only('create','store');
+        $this->middleware('can:especiality.edit')->only('edit','update');
+        $this->middleware('can:especiality.destroy')->only('destroy');
+    }
     public function index()
     {
-        $especialities = Medical_especiality::all();
+        $especialities = Medical_especiality::paginate(10);
         return view('admin.especiality.index', compact('especialities'));
     }
 
@@ -35,22 +38,12 @@ class EspecialityController extends Controller
             'description' => $request -> description]
         );
 
-        
+
         return redirect()->action([EspecialityController::class, 'index']);
-        
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Medical_especiality $medical_especiality)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit( $especiality)
     {
         $medical_especiality = Medical_especiality::find($especiality);
@@ -75,6 +68,6 @@ class EspecialityController extends Controller
     {
         Medical_especiality::destroy($medical_especiality);
         return redirect()->action([EspecialityController::class, 'index']);
-        
+
     }
 }

@@ -16,12 +16,14 @@ return new class extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('email')->nullable();
+            $table->string('professional_license')->nullable();
+            $table->string('scholarship')->nullable();
             $table->text('information')->nullable();
-            $table->unsignedInteger('phone')->nullable();
+            $table->string('phone')->nullable();
             $table->unsignedBigInteger('consulting_room_id')->nullable();
             $table->unsignedBigInteger('medical_especiality_id')->nullable();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('status');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('status')->default(1);
             $table->timestamps();
 
         });

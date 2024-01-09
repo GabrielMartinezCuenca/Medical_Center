@@ -9,9 +9,17 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\AuthAdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
+
+    Route::get('loginAdmin', [AuthAdminController::class, 'create'])
+    ->name('admin.login.create');
+
+    Route::get('loginAdmin/store', [AuthAdminController::class, 'store'])
+    ->name('admin.login.store');
+
     Route::get('register', [RegisteredUserController::class, 'create'])
                 ->name('register');
 

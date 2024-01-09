@@ -2,9 +2,18 @@
 
 namespace App\Providers;
 
+use App\Events\AppointmentDeleteEvent;
+use App\Events\ConfirmAppointmentEvent;
 use App\Events\CreateAppointmentEvent;
+use App\Events\CreatePrescriptionEvent;
 use App\Events\CreateUserEvent;
+use App\Events\DoctorCreateEvent;
+use App\Listeners\changeStatusAppointment;
 use App\Listeners\CreatePatientListener;
+use App\Listeners\DoctorUserCreate;
+use App\Listeners\makePrescriptionPDF;
+use App\Listeners\SendEmailConfirmAppointment;
+use App\Listeners\SendMailAppointmentCancel;
 use App\Listeners\SendMailWelcomeListener;
 use App\Listeners\SendNewAppointmentEmail;
 use Illuminate\Auth\Events\Registered;
@@ -30,7 +39,20 @@ class EventServiceProvider extends ServiceProvider
         CreateAppointmentEvent::class => [
             SendNewAppointmentEmail::class
         ],
-        
+        ConfirmAppointmentEvent::class => [
+            SendEmailConfirmAppointment::class
+        ],
+        DoctorCreateEvent::class => [
+            DoctorUserCreate::class
+        ],
+        CreatePrescriptionEvent::class=>[
+            makePrescriptionPDF::class,
+            changeStatusAppointment::class,
+        ],
+        AppointmentDeleteEvent::class=>[
+            SendMailAppointmentCancel::class,
+        ],
+
     ];
 
     /**
